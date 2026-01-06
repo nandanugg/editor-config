@@ -93,6 +93,16 @@ install_homebrew() {
   fi
 }
 
+install_antigen() {
+  if [ ! -f "$HOME/antigen.zsh" ]; then
+    echo "📦 Installing Antigen..."
+    curl -L git.io/antigen > "$HOME/antigen.zsh"
+    echo "✅ Installed Antigen to $HOME/antigen.zsh"
+  else
+    echo "✅ Antigen already installed at $HOME/antigen.zsh"
+  fi
+}
+
 # Utility function to create a symlink only if necessary
 ensure_symlink() {
   local src="$1"
@@ -179,6 +189,9 @@ fi
 # Detect package manager
 detect_package_manager
 
+# Install antigen
+install_antigen
+
 # Sync dotfiles
 echo ""
 echo "📁 Syncing dotfiles..."
@@ -246,7 +259,7 @@ if [[ "$PKG_MANAGER" == "apt" ]]; then
   else
     echo "✅ asdf already installed"
   fi
-else
+elif [[ "$PKG_MANAGER" == "brew" ]]; then
   install_package "asdf" "asdf" "asdf-vm"
 fi
 
