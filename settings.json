@@ -442,7 +442,7 @@
                 "name": "Command Prompt"
             },
             {
-                "commandline": "C:\\WINDOWS\\system32\\wsl.exe --distribution-id {07cfd288-132c-4fd5-9f50-120a24a1f1bc} -u nanda",
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -u nanda",
                 "cursorShape": "bar",
                 "font": {
                     "face": "Cascadia Mono",
