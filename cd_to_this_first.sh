@@ -13,7 +13,7 @@ detect_package_manager() {
   else
     PKG_MANAGER="unknown"
   fi
-  echo "🔍 Detected package manager: $PKG_MANAGER"
+  echo "🔧 Detected package manager: $PKG_MANAGER"
 }
 
 # Install a package using the appropriate package manager
@@ -27,7 +27,7 @@ install_package() {
   case "$PKG_MANAGER" in
     brew)
       if ! brew list --formula 2>/dev/null | grep -q "^${pkg_name}$"; then
-        echo "📥 Installing $pkg_name via Homebrew..."
+        echo "📦 Installing $pkg_name via Homebrew..."
         brew install "$pkg_name"
         echo "✅ Installed $pkg_name"
       else
@@ -36,7 +36,7 @@ install_package() {
       ;;
     apt)
       if ! dpkg -l "$apt_name" 2>/dev/null | grep -q "^ii"; then
-        echo "📥 Installing $apt_name via APT..."
+        echo "📦 Installing $apt_name via APT..."
         sudo apt update -qq
         sudo apt install -y "$apt_name"
         echo "✅ Installed $apt_name"
@@ -46,7 +46,7 @@ install_package() {
       ;;
     pacman)
       if ! pacman -Q "$pacman_name" &> /dev/null; then
-        echo "📥 Installing $pacman_name via Pacman..."
+        echo "📦 Installing $pacman_name via Pacman..."
         sudo pacman -S --noconfirm "$pacman_name"
         echo "✅ Installed $pacman_name"
       else
@@ -85,7 +85,7 @@ is_package_installed() {
 # Install Homebrew (macOS only)
 install_homebrew() {
   if ! command -v brew &> /dev/null; then
-    echo "📥 Installing Homebrew..."
+    echo "📦 Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo "✅ Installed Homebrew"
   else
@@ -95,7 +95,7 @@ install_homebrew() {
 
 install_antigen() {
   if [ ! -f "$HOME/antigen.zsh" ]; then
-    echo "📦 Installing Antigen..."
+    echo "🎨 Installing Antigen..."
     curl -L git.io/antigen > "$HOME/antigen.zsh"
     echo "✅ Installed Antigen to $HOME/antigen.zsh"
   else
@@ -146,6 +146,49 @@ ensure_symlink() {
   echo "✅ Sync $name"
 }
 
+# Utility function to create a symlink that requires sudo
+ensure_symlink_sudo() {
+  local src="$1"
+  local dst="$2"
+  local name="$3"
+
+  # Check if source exists
+  if [ ! -e "$src" ]; then
+    # Remove broken symlink if it exists
+    if [ -L "$dst" ]; then
+      echo "🔄 Removing broken symlink: $dst"
+      sudo rm -f "$dst"
+    fi
+    echo "⚠️ Source not found for $name: $src (skipping)"
+    return 0
+  fi
+
+  if [ -L "$dst" ]; then
+    local current
+    current=$(readlink "$dst")
+    if [[ "$current" == "$src" ]]; then
+      # Verify the symlink target actually exists
+      if [ -e "$dst" ]; then
+        echo "✅ $name already synced"
+        return 0
+      else
+        echo "🔄 Fixing broken symlink: $dst"
+        sudo rm -f "$dst"
+      fi
+    else
+      echo "🔄 Updating symlink: $dst -> $src"
+      sudo rm -f "$dst"
+    fi
+  elif [ -e "$dst" ]; then
+    echo "🔄 Backing up existing file: $dst -> ${dst}.backup"
+    sudo mv "$dst" "${dst}.backup"
+  fi
+
+  sudo mkdir -p "$(dirname "$dst")"
+  sudo ln -s "$src" "$dst"
+  echo "✅ Sync $name"
+}
+
 # Get the appropriate config directory for Ghostty based on OS
 get_ghostty_config_path() {
   case "$(uname)" in
@@ -161,6 +204,17 @@ get_ghostty_config_path() {
   esac
 }
 
+# Detect if running on WSL
+is_wsl() {
+  if grep -qEi "(Microsoft|WSL)" /proc/version 2>/dev/null; then
+    return 0
+  elif [[ -n "${WSL_DISTRO_NAME}" ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 # ============================================================================
 # Main Script
 # ============================================================================
@@ -168,13 +222,8 @@ get_ghostty_config_path() {
 # Home directory
 HOME_DIR="$HOME"
 
-# Detect if running on WSL
-is_wsl() {
-  command -v wsl.exe &> /dev/null
-}
-
 echo "🚀 Starting dotfiles setup..."
-echo "📍 Running from: $(pwd)"
+echo "📂 Running from: $(pwd)"
 echo "🏠 Home directory: $HOME_DIR"
 echo "💻 Operating system: $(uname -s)"
 if is_wsl; then
@@ -194,7 +243,7 @@ install_antigen
 
 # Sync dotfiles
 echo ""
-echo "📁 Syncing dotfiles..."
+echo "📋 Syncing dotfiles..."
 ensure_symlink "$(pwd)/bin" "$HOME_DIR/bin" "bin"
 ensure_symlink "$(pwd)/.gitconfig" "$HOME_DIR/.gitconfig" ".gitconfig"
 ensure_symlink "$(pwd)/.vimrc" "$HOME_DIR/.vimrc" ".vimrc"
@@ -207,12 +256,30 @@ ensure_symlink "$(pwd)/.tmux.conf.local" "$HOME_DIR/.config/tmux/tmux.conf.local
 GHOSTTY_CONFIG_PATH=$(get_ghostty_config_path)
 ensure_symlink "$(pwd)/.ghosttyrc" "$GHOSTTY_CONFIG_PATH" ".ghosttyrc"
 
+# WSL-specific configuration
+if is_wsl; then
+  echo ""
+  echo "🐧 Setting up WSL-specific configuration..."
+  
+  # Symlink wsl.conf to /etc/wsl.conf (requires sudo)
+  if [ -f "$(pwd)/wsl.conf" ]; then
+    ensure_symlink_sudo "$(pwd)/wsl.conf" "/etc/wsl.conf" "wsl.conf"
+    echo "ℹ️  Note: Changes to /etc/wsl.conf require WSL restart to take effect"
+    echo "   Run 'wsl.exe --shutdown' from Windows to restart WSL"
+  else
+    echo "⚠️  wsl.conf not found in $(pwd), skipping /etc/wsl.conf setup"
+  fi
+  
+  echo ""
+  echo "ℹ️  For Windows Terminal settings.json, run setup-windows.bat as Administrator"
+fi
+
 # Install oh-my-zsh only if not already present
 echo ""
 echo "🔌 Installing shell plugins..."
 OMZ_DIR="$HOME_DIR/.oh-my-zsh"
 if [ ! -d "$OMZ_DIR" ]; then
-  echo "📥 Installing oh-my-zsh..."
+  echo "📦 Installing oh-my-zsh..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   echo "✅ Installed oh-my-zsh"
 else
@@ -221,7 +288,7 @@ fi
 
 # Install packages
 echo ""
-echo "📦 Installing packages..."
+echo "🎨 Installing packages..."
 
 # Install essential tools (git, openssh, rsync for Arch)
 if [[ "$PKG_MANAGER" == "pacman" ]]; then
@@ -250,7 +317,7 @@ if [[ "$PKG_MANAGER" == "apt" ]]; then
   # For Ubuntu/Debian, install asdf via git
   ASDF_DIR="$HOME_DIR/.asdf"
   if [ ! -d "$ASDF_DIR" ]; then
-    echo "📥 Installing asdf via git..."
+    echo "📦 Installing asdf via git..."
     # Install dependencies
     sudo apt update -qq
     sudo apt install -y curl git
@@ -265,9 +332,9 @@ fi
 
 # Install oh my tmux if not already installed
 echo ""
-echo "🎨 Setting up tmux configuration..."
+echo "⚙️ Setting up tmux configuration..."
 if [ ! -f "$HOME_DIR/.config/tmux/tmux.conf.local" ]; then
-  echo "📥 Installing oh my tmux..."
+  echo "📦 Installing oh my tmux..."
   curl -fsSL "https://github.com/gpakosz/.tmux/raw/refs/heads/master/install.sh#$(date +%s)" | bash
   echo "✅ Installed oh my tmux"
 else
@@ -283,7 +350,7 @@ ASDF_COMPLETION_FILE="${ASDF_DATA_DIR}/completions/_asdf"
 
 if command -v asdf &> /dev/null; then
   if [ ! -f "$ASDF_COMPLETION_FILE" ]; then
-    echo "📥 Setting up asdf zsh completion..."
+    echo "📦 Setting up asdf zsh completion..."
     asdf completion zsh > "$ASDF_COMPLETION_FILE"
     echo "✅ asdf zsh completion set up"
   else
@@ -302,4 +369,19 @@ echo "   - Restart your shell or run 'source ~/.zshrc' to apply changes"
 if [[ "$PKG_MANAGER" == "apt" ]]; then
   echo "   - For asdf, add this to your .zshrc:"
   echo "     . \"\$HOME/.asdf/asdf.sh\""
+fi
+if is_wsl; then
+  echo ""
+  echo "🐧 WSL-specific notes:"
+  echo "   - If you updated /etc/wsl.conf, restart WSL with: wsl.exe --shutdown"
+  echo "   - To setup Windows Terminal settings, run setup-windows.bat as Administrator"
+  echo ""
+  echo "📂 Opening Windows Explorer to setup-windows.bat location..."
+  # Get the Windows path to the current directory
+  WINDOWS_PATH=$(wslpath -w "$(pwd)")
+  
+  # Open Explorer and select the batch file
+  explorer.exe "$WINDOWS_PATH"
+  
+  echo "✅ Explorer opened. Right-click setup-windows.bat and select 'Run as administrator'"
 fi
