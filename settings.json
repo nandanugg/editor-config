@@ -451,7 +451,9 @@
                 "guid": "{edf47854-08ac-5475-8c6a-08a1dbe7450a}",
                 "hidden": false,
                 "name": "archlinux",
-                "source": "Microsoft.WSL"
+                "source": "Microsoft.WSL",
+                "pathTranslationStyle": "wsl",
+                "startingDirectory": "~"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
