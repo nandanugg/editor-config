@@ -163,7 +163,7 @@
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{edf47854-08ac-5475-8c6a-08a1dbe7450a}",
+    "defaultProfile": "{01b1376f-4e67-5022-b7c6-df5d2c277998}",
     "keybindings": 
     [
         {
@@ -474,7 +474,7 @@
                 "bellStyle": "none",
                 "closeOnExit": "graceful",
                 "colorScheme": "IBM 5153",
-                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -u nanda",
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe --distribution archlinux -u nanda",
                 "cursorColor": "#FFFFFF",
                 "cursorShape": "filledBox",
                 "experimental.retroTerminalEffect": true,
@@ -484,7 +484,7 @@
                     "size": 13,
                     "weight": "medium"
                 },
-                "guid": "{edf47854-08ac-5475-8c6a-08a1dbe7450a}",
+                "guid": "{01b1376f-4e67-5022-b7c6-df5d2c277998}",
                 "hidden": false,
                 "name": "archlinux",
                 "pathTranslationStyle": "wsl",
