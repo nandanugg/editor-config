@@ -183,10 +183,6 @@
             "keys": "ctrl+shift+k"
         },
         {
-            "id": "User.closePane",
-            "keys": "ctrl+shift+w"
-        },
-        {
             "id": null,
             "keys": "enter"
         },
@@ -445,6 +441,10 @@
         {
             "id": null,
             "keys": "ctrl+shift+m"
+        },
+        {
+            "id": "User.closePane",
+            "keys": "ctrl+shift+w"
         }
     ],
     "newTabMenu": 
