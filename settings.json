@@ -6,18 +6,13 @@
         {
             "command": 
             {
-                "action": "openSettings",
-                "target": "settingsUI"
+                "action": "newTab"
             },
-            "id": "User.openSettings.6CD791B"
+            "id": "User.newTab.5DEADB41"
         },
         {
-            "command": 
-            {
-                "action": "adjustFontSize",
-                "delta": -1
-            },
-            "id": "User.adjustFontSize.E2698FAA"
+            "command": "paste",
+            "id": "User.paste"
         },
         {
             "command": 
@@ -46,17 +41,18 @@
         {
             "command": 
             {
-                "action": "newTab"
+                "action": "openSettings",
+                "target": "settingsUI"
             },
-            "id": "User.newTab.5DEADB41"
+            "id": "User.openSettings.6CD791B"
         },
         {
-            "command": "paste",
-            "id": "User.paste"
-        },
-        {
-            "command": "closePane",
-            "id": "User.closePane"
+            "command": 
+            {
+                "action": "adjustFontSize",
+                "delta": -1
+            },
+            "id": "User.adjustFontSize.E2698FAA"
         },
         {
             "command": 
@@ -65,6 +61,10 @@
                 "split": "up"
             },
             "id": "User.splitPane.B39B174B"
+        },
+        {
+            "command": "closePane",
+            "id": "User.closePane"
         },
         {
             "command": 
@@ -176,15 +176,11 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+tab"
-        },
-        {
-            "id": null,
             "keys": "ctrl+shift+k"
         },
         {
             "id": null,
-            "keys": "enter"
+            "keys": "ctrl+shift+tab"
         },
         {
             "id": null,
@@ -196,7 +192,15 @@
         },
         {
             "id": null,
+            "keys": "enter"
+        },
+        {
+            "id": null,
             "keys": "alt+f4"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+insert"
         },
         {
             "id": "User.switchToTab.787314EB",
@@ -204,11 +208,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+insert"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+5"
+            "keys": "alt+shift+right"
         },
         {
             "id": "User.copy.224984B4",
@@ -216,7 +216,7 @@
         },
         {
             "id": null,
-            "keys": "alt+shift+right"
+            "keys": "ctrl+alt+5"
         },
         {
             "id": "User.switchToTab.87C324ED",
@@ -228,11 +228,11 @@
         },
         {
             "id": null,
-            "keys": "alt+shift+plus"
+            "keys": "alt+space"
         },
         {
             "id": null,
-            "keys": "alt+space"
+            "keys": "alt+shift+plus"
         },
         {
             "id": "User.toggleFullscreen",
@@ -243,16 +243,16 @@
             "keys": "ctrl+numpad_plus"
         },
         {
-            "id": "User.switchToTab.6CD791B",
-            "keys": "ctrl+shift+4"
+            "id": null,
+            "keys": "alt+down"
         },
         {
             "id": "User.newTab.5DEADB41",
             "keys": "ctrl+shift+t"
         },
         {
-            "id": null,
-            "keys": "alt+down"
+            "id": "User.switchToTab.6CD791B",
+            "keys": "ctrl+shift+4"
         },
         {
             "id": null,
@@ -271,14 +271,6 @@
             "keys": "ctrl+shift+1"
         },
         {
-            "id": "User.openSettings.2A0DA8E0",
-            "keys": "ctrl+shift+comma"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+0"
-        },
-        {
             "id": "User.switchToTab.F747588A",
             "keys": "ctrl+shift+5"
         },
@@ -288,11 +280,19 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+home"
+            "keys": "ctrl+0"
+        },
+        {
+            "id": "User.openSettings.2A0DA8E0",
+            "keys": "ctrl+shift+comma"
         },
         {
             "id": null,
             "keys": "ctrl+shift+7"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+home"
         },
         {
             "id": null,
@@ -303,28 +303,28 @@
             "keys": "ctrl+shift+9"
         },
         {
-            "id": null,
-            "keys": "ctrl+alt+4"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+7"
+            "id": "User.newWindow.5DEADB41",
+            "keys": "ctrl+shift+n"
         },
         {
             "id": "User.adjustFontSize.E2698FAA",
             "keys": "ctrl+shift+minus"
         },
         {
-            "id": "User.newWindow.5DEADB41",
-            "keys": "ctrl+shift+n"
+            "id": null,
+            "keys": "ctrl+alt+7"
         },
         {
             "id": null,
-            "keys": "ctrl+tab"
+            "keys": "ctrl+alt+4"
         },
         {
             "id": null,
             "keys": "alt+shift+down"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+tab"
         },
         {
             "id": null,
@@ -336,18 +336,6 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+pgdn"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+pgup"
-        },
-        {
-            "id": "User.openSettings.6CD791B",
-            "keys": "ctrl+shift+period"
-        },
-        {
-            "id": null,
             "keys": "ctrl+numpad0"
         },
         {
@@ -355,8 +343,16 @@
             "keys": "f11"
         },
         {
+            "id": "User.openSettings.6CD791B",
+            "keys": "ctrl+shift+period"
+        },
+        {
             "id": null,
-            "keys": "ctrl+alt+8"
+            "keys": "ctrl+shift+pgup"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+pgdn"
         },
         {
             "id": "User.paste",
@@ -364,19 +360,23 @@
         },
         {
             "id": null,
-            "keys": "shift+insert"
+            "keys": "ctrl+alt+8"
         },
         {
             "id": null,
-            "keys": "ctrl+alt+1"
+            "keys": "shift+insert"
+        },
+        {
+            "id": "User.adjustFontSize.E04D5229",
+            "keys": "ctrl+shift+plus"
         },
         {
             "id": null,
             "keys": "alt+shift+left"
         },
         {
-            "id": "User.adjustFontSize.E04D5229",
-            "keys": "ctrl+shift+plus"
+            "id": null,
+            "keys": "ctrl+alt+1"
         },
         {
             "id": null,
@@ -396,27 +396,27 @@
         },
         {
             "id": null,
-            "keys": "menu"
+            "keys": "ctrl+shift+a"
         },
         {
             "id": null,
-            "keys": "ctrl+shift+a"
+            "keys": "menu"
         },
         {
             "id": null,
             "keys": "win+sc(41)"
         },
         {
-            "id": null,
-            "keys": "ctrl+alt+2"
+            "id": "User.moveFocus.2A0DA8E0",
+            "keys": "ctrl+shift+["
         },
         {
             "id": null,
             "keys": "ctrl+alt+9"
         },
         {
-            "id": "User.moveFocus.2A0DA8E0",
-            "keys": "ctrl+shift+["
+            "id": null,
+            "keys": "ctrl+alt+2"
         },
         {
             "id": null,
