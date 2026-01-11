@@ -60,4 +60,5 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
 
 # (mason) 
-export PATH="~/.local/share/nvim/mason/bin:$PATH"
+export PATH="/home/nanda/.local/share/nvim/mason/bin:$PATH"
+
