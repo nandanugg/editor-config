@@ -370,18 +370,3 @@ if [[ "$PKG_MANAGER" == "apt" ]]; then
   echo "   - For asdf, add this to your .zshrc:"
   echo "     . \"\$HOME/.asdf/asdf.sh\""
 fi
-if is_wsl; then
-  echo ""
-  echo "🐧 WSL-specific notes:"
-  echo "   - If you updated /etc/wsl.conf, restart WSL with: wsl.exe --shutdown"
-  echo "   - To setup Windows Terminal settings, run setup-windows.bat as Administrator"
-  echo ""
-  echo "📂 Opening Windows Explorer to setup-windows.bat location..."
-  # Get the Windows path to the current directory
-  WINDOWS_PATH=$(wslpath -w "$(pwd)")
-  
-  # Open Explorer and select the batch file
-  explorer.exe "$WINDOWS_PATH"
-  
-  echo "✅ Explorer opened. Right-click setup-windows.bat and select 'Run as administrator'"
-fi
