@@ -55,3 +55,5 @@ if [ -f '/Users/nanda/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nanda/goo
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/nanda/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nanda/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="$HOME/.local/bin:$PATH"
+
+alias chrome-mcp='npx @dbalabka/chrome-wsl'
