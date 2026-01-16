@@ -41,7 +41,7 @@ export ASDF_DATA_DIR="$HOME/.asdfdir"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 
 # (asdf) shims
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PATH="$PATH:${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
 
 # (zoxide)
 eval "$(zoxide init zsh)"
@@ -54,6 +54,14 @@ if [ -f '/Users/nanda/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nanda/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/nanda/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nanda/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="$PATH:$HOME/.local/bin"
+
+# (go) bin
+export PATH="$PATH$:(go env GOPATH)/bin"
+
+# (mason) 
+export PATH="$PATH:/home/nanda/.local/share/nvim/mason/bin"
+
 export PATH="$HOME/.local/bin:$PATH"
 
 <<<<<<< HEAD
