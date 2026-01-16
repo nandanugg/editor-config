@@ -251,6 +251,7 @@ ensure_symlink "$(pwd)/.netrc" "$HOME_DIR/.netrc" ".netrc"
 ensure_symlink "$(pwd)/.zshrc" "$HOME_DIR/.zshrc" ".zshrc"
 ensure_symlink "$(pwd)/.gitignore_global" "$HOME_DIR/.gitignore_global" ".gitignore_global"
 ensure_symlink "$(pwd)/.tmux.conf.local" "$HOME_DIR/.config/tmux/tmux.conf.local" "tmux.conf.local"
+ensure_symlink "$(pwd)/codex-config.toml" "$HOME_DIR/.codex/config.toml" ".codex/config.toml"
 
 # Ghostty config (OS-aware path)
 GHOSTTY_CONFIG_PATH=$(get_ghostty_config_path)
