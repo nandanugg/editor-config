@@ -64,8 +64,6 @@ export PATH="$PATH:/home/nanda/.local/share/nvim/mason/bin"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-<<<<<<< HEAD
 alias chrome-mcp='npx @dbalabka/chrome-wsl'
-=======
+
 export PATH="$HOME/.local/bin:$PATH"
->>>>>>> d225209 (add local bin)
