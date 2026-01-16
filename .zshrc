@@ -56,4 +56,8 @@ if [ -f '/Users/nanda/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nanda/goo
 if [ -f '/Users/nanda/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nanda/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="$HOME/.local/bin:$PATH"
 
+<<<<<<< HEAD
 alias chrome-mcp='npx @dbalabka/chrome-wsl'
+=======
+export PATH="$HOME/.local/bin:$PATH"
+>>>>>>> d225209 (add local bin)
