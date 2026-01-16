@@ -272,6 +272,7 @@ if is_wsl; then
   fi
   
   echo ""
+  echo "ℹ️  For .wslconfig, run sync-wslconfig.bat as Administrator"
   echo "ℹ️  For Windows Terminal settings.json, run setup-windows.bat as Administrator"
 fi
 
@@ -370,4 +371,12 @@ echo "   - Restart your shell or run 'source ~/.zshrc' to apply changes"
 if [[ "$PKG_MANAGER" == "apt" ]]; then
   echo "   - For asdf, add this to your .zshrc:"
   echo "     . \"\$HOME/.asdf/asdf.sh\""
+fi
+
+# Open Windows Explorer in WSL to allow running sync-wslconfig.bat
+if is_wsl; then
+  echo ""
+  echo "🪟 Opening Windows Explorer to run sync-wslconfig.bat..."
+  echo "   Right-click sync-wslconfig.bat and select 'Run as Administrator'"
+  explorer.exe .
 fi
