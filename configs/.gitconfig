@@ -1,15 +1,12 @@
 [user]
 	name = nandanugg
 	email = nandanugg@gmail.com
-#[user]
-#	name = nandawartek
-#	email = nanda@wartek.belajar.id
 [pull]
 	rebase = true
 [core]
 	autocrlf = input
 	filemode = false
-	excludesfile = /Users/nanda/.gitignore_global
+	excludesfile = /home/nanda/.gitignore_global
 [url "ssh://git@gitlab.com/"]
 	insteadOf = https://gitlab.com/
 [push]
