@@ -5,7 +5,7 @@ set -euo pipefail
 # Apply actions from local file to Windows Terminal settings.json
 # This script should be run from WSL
 
-echo "📋 Applying Windows Terminal actions..."
+echo "📋 Applying Windows Terminal actions and keybindings..."
 
 LOCAL_SETTINGS_FILE="$(pwd)/configs/windows-terminal-settings.json"
 
@@ -40,7 +40,7 @@ if command -v jq &> /dev/null; then
   # Move the temporary file to the actual settings path
   mv "${WINDOWS_SETTINGS_PATH}.tmp" "$WINDOWS_SETTINGS_PATH"
 
-  echo "✅ Applied actions from windows-terminal-settings.json to Windows Terminal"
+  echo "✅ Applied actions and keybindings from windows-terminal-settings.json to Windows Terminal"
   echo ""
   echo "ℹ️  Restart Windows Terminal for changes to take effect"
 else
