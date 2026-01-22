@@ -1,0 +1,178 @@
+{
+  "actions": [
+    {
+      "command": "closePane",
+      "id": "User.closePane"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 3
+      },
+      "id": "User.switchToTab.6CD791B"
+    },
+    {
+      "command": {
+        "action": "copy",
+        "singleLine": false
+      },
+      "id": "User.copy.224984B4"
+    },
+    {
+      "command": {
+        "action": "adjustFontSize",
+        "delta": 1
+      },
+      "id": "User.adjustFontSize.E04D5229"
+    },
+    {
+      "command": {
+        "action": "openSettings",
+        "target": "settingsUI"
+      },
+      "id": "User.openSettings.6CD791B"
+    },
+    {
+      "command": {
+        "action": "adjustFontSize",
+        "delta": -1
+      },
+      "id": "User.adjustFontSize.E2698FAA"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 0
+      },
+      "id": "User.switchToTab.D3F0B923"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "right"
+      },
+      "id": "User.moveFocus.87C324ED"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 1
+      },
+      "id": "User.switchToTab.2A0DA8E0"
+    },
+    {
+      "command": "paste",
+      "id": "User.paste"
+    },
+    {
+      "command": {
+        "action": "newTab"
+      },
+      "id": "User.newTab.5DEADB41"
+    },
+    {
+      "command": "togglePaneZoom",
+      "id": "User.togglePaneZoom"
+    },
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "right"
+      },
+      "id": "User.splitPane.864CD510"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "up"
+      },
+      "id": "User.resizePane.6CD791B"
+    },
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "down"
+      },
+      "id": "User.splitPane.D5151347"
+    },
+    {
+      "command": {
+        "action": "nextTab"
+      },
+      "id": "User.nextTab.0"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 2
+      },
+      "id": "User.switchToTab.87C324ED"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 5
+      },
+      "id": "User.switchToTab.75247157"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 4
+      },
+      "id": "User.switchToTab.F747588A"
+    },
+    {
+      "command": "restoreLastClosed",
+      "id": "User.restoreLastClosed"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "left"
+      },
+      "id": "User.resizePane.2A0DA8E0"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "down"
+      },
+      "id": "User.moveFocus.F747588A"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "nextInOrder"
+      },
+      "id": "User.moveFocus.D7681B66"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "previousInOrder"
+      },
+      "id": "User.moveFocus.787314EB"
+    },
+    {
+      "command": {
+        "action": "addMark"
+      },
+      "id": "User.addMark.0"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "right"
+      },
+      "id": "User.resizePane.87C324ED"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "down"
+      },
+      "id": "User.resizePane.F747588A"
+    }
+  ]
+}

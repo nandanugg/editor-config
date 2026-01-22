@@ -67,3 +67,14 @@ export PATH="$HOME/.local/bin:$PATH"
 alias chrome-mcp='npx @dbalabka/chrome-wsl'
 
 export PATH="$HOME/.local/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# opencode
+export PATH=/home/nanda/.opencode/bin:$PATH

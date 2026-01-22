@@ -245,17 +245,17 @@ install_antigen
 echo ""
 echo "📋 Syncing dotfiles..."
 ensure_symlink "$(pwd)/bin" "$HOME_DIR/bin" "bin"
-ensure_symlink "$(pwd)/.gitconfig" "$HOME_DIR/.gitconfig" ".gitconfig"
-ensure_symlink "$(pwd)/.vimrc" "$HOME_DIR/.vimrc" ".vimrc"
-ensure_symlink "$(pwd)/.netrc" "$HOME_DIR/.netrc" ".netrc"
-ensure_symlink "$(pwd)/.zshrc" "$HOME_DIR/.zshrc" ".zshrc"
-ensure_symlink "$(pwd)/.gitignore_global" "$HOME_DIR/.gitignore_global" ".gitignore_global"
-ensure_symlink "$(pwd)/.tmux.conf.local" "$HOME_DIR/.config/tmux/tmux.conf.local" "tmux.conf.local"
-ensure_symlink "$(pwd)/codex-config.toml" "$HOME_DIR/.codex/config.toml" ".codex/config.toml"
+ensure_symlink "$(pwd)/configs/.ssh/config" "$HOME_DIR/.ssh/config" ".ssh/config"
+ensure_symlink "$(pwd)/configs/.gitconfig" "$HOME_DIR/.gitconfig" ".gitconfig"
+ensure_symlink "$(pwd)/configs/.vimrc" "$HOME_DIR/.vimrc" ".vimrc"
+ensure_symlink "$(pwd)/configs/.netrc" "$HOME_DIR/.netrc" ".netrc"
+ensure_symlink "$(pwd)/configs/.zshrc" "$HOME_DIR/.zshrc" ".zshrc"
+ensure_symlink "$(pwd)/configs/.gitignore_global" "$HOME_DIR/.gitignore_global" ".gitignore_global"
+ensure_symlink "$(pwd)/configs/.tmux.conf.local" "$HOME_DIR/.config/tmux/tmux.conf.local" "tmux.conf.local"
 
 # Ghostty config (OS-aware path)
 GHOSTTY_CONFIG_PATH=$(get_ghostty_config_path)
-ensure_symlink "$(pwd)/.ghosttyrc" "$GHOSTTY_CONFIG_PATH" ".ghosttyrc"
+ensure_symlink "$(pwd)/configs/.ghosttyrc" "$GHOSTTY_CONFIG_PATH" ".ghosttyrc"
 
 # WSL-specific configuration
 if is_wsl; then
@@ -263,17 +263,19 @@ if is_wsl; then
   echo "🐧 Setting up WSL-specific configuration..."
   
   # Symlink wsl.conf to /etc/wsl.conf (requires sudo)
-  if [ -f "$(pwd)/wsl.conf" ]; then
-    ensure_symlink_sudo "$(pwd)/wsl.conf" "/etc/wsl.conf" "wsl.conf"
+  if [ -f "$(pwd)/configs/wsl.conf" ]; then
+    ensure_symlink_sudo "$(pwd)/configs/wsl.conf" "/etc/wsl.conf" "wsl.conf"
     echo "ℹ️  Note: Changes to /etc/wsl.conf require WSL restart to take effect"
     echo "   Run 'wsl.exe --shutdown' from Windows to restart WSL"
   else
-    echo "⚠️  wsl.conf not found in $(pwd), skipping /etc/wsl.conf setup"
+    echo "⚠️  wsl.conf not found in $(pwd)/configs, skipping /etc/wsl.conf setup"
   fi
   
   echo ""
   echo "ℹ️  For .wslconfig, run sync-wslconfig.bat as Administrator"
-  echo "ℹ️  For Windows Terminal settings.json, run setup-windows.bat as Administrator"
+  echo "ℹ️  For Windows Terminal settings actions:"
+  echo "   - Run extract-windows-terminal-settings.sh to save actions to repo"
+  echo "   - Run apply-windows-terminal-settings.sh to apply actions back"
 fi
 
 # Install oh-my-zsh only if not already present
@@ -298,6 +300,7 @@ if [[ "$PKG_MANAGER" == "pacman" ]]; then
   install_package "curl" "curl" "curl"
   install_package "openssh" "openssh-client" "openssh"
   install_package "rsync" "rsync" "rsync"
+  install_package "jq" "jq" "jq"
 fi
 
 # Install zsh if not present (needed for oh-my-zsh)
