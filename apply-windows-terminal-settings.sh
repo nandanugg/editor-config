@@ -28,11 +28,6 @@ if command -v jq &> /dev/null; then
     exit 1
   fi
 
-  # Create backup
-  BACKUP_PATH="${WINDOWS_SETTINGS_PATH}.backup.$(date +%Y%m%d_%H%M%S)"
-  cp "$WINDOWS_SETTINGS_PATH" "$BACKUP_PATH"
-  echo "✅ Backed up settings.json to $BACKUP_PATH"
-
   # Apply the actions from local file to Windows settings.json
   # Keep everything except actions, then merge with local actions
   jq --slurpfile local "$LOCAL_SETTINGS_FILE" '. + $local[0]' "$WINDOWS_SETTINGS_PATH" > "${WINDOWS_SETTINGS_PATH}.tmp"

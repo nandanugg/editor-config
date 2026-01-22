@@ -6,7 +6,7 @@
 [core]
 	autocrlf = input
 	filemode = false
-	excludesfile = /home/nanda/.gitignore_global
+	excludesFile = /home/nanda/.gitignore_global
 [url "ssh://git@gitlab.com/"]
 	insteadOf = https://gitlab.com/
 [push]
