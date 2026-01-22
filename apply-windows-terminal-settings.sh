@@ -35,7 +35,7 @@ if command -v jq &> /dev/null; then
 
   # Apply the actions from local file to Windows settings.json
   # Keep everything except actions, then merge with local actions
-  jq --argfile local "$LOCAL_SETTINGS_FILE" '. + $local' "$WINDOWS_SETTINGS_PATH" > "${WINDOWS_SETTINGS_PATH}.tmp"
+  jq --slurpfile local "$LOCAL_SETTINGS_FILE" '. + $local[0]' "$WINDOWS_SETTINGS_PATH" > "${WINDOWS_SETTINGS_PATH}.tmp"
 
   # Move the temporary file to the actual settings path
   mv "${WINDOWS_SETTINGS_PATH}.tmp" "$WINDOWS_SETTINGS_PATH"
