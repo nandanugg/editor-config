@@ -6,13 +6,6 @@
     },
     {
       "command": {
-        "action": "switchToTab",
-        "index": 3
-      },
-      "id": "User.switchToTab.6CD791B"
-    },
-    {
-      "command": {
         "action": "copy",
         "singleLine": false
       },
@@ -20,10 +13,38 @@
     },
     {
       "command": {
+        "action": "switchToTab",
+        "index": 3
+      },
+      "id": "User.switchToTab.6CD791B"
+    },
+    {
+      "command": {
         "action": "adjustFontSize",
         "delta": 1
       },
       "id": "User.adjustFontSize.E04D5229"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "right"
+      },
+      "id": "User.moveFocus.87C324ED"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 0
+      },
+      "id": "User.switchToTab.D3F0B923"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 1
+      },
+      "id": "User.switchToTab.2A0DA8E0"
     },
     {
       "command": {
@@ -41,38 +62,13 @@
     },
     {
       "command": {
-        "action": "switchToTab",
-        "index": 0
-      },
-      "id": "User.switchToTab.D3F0B923"
-    },
-    {
-      "command": {
-        "action": "moveFocus",
-        "direction": "right"
-      },
-      "id": "User.moveFocus.87C324ED"
-    },
-    {
-      "command": {
-        "action": "switchToTab",
-        "index": 1
-      },
-      "id": "User.switchToTab.2A0DA8E0"
-    },
-    {
-      "command": "paste",
-      "id": "User.paste"
-    },
-    {
-      "command": {
         "action": "newTab"
       },
       "id": "User.newTab.5DEADB41"
     },
     {
-      "command": "togglePaneZoom",
-      "id": "User.togglePaneZoom"
+      "command": "paste",
+      "id": "User.paste"
     },
     {
       "command": {
@@ -82,11 +78,8 @@
       "id": "User.splitPane.864CD510"
     },
     {
-      "command": {
-        "action": "resizePane",
-        "direction": "up"
-      },
-      "id": "User.resizePane.6CD791B"
+      "command": "togglePaneZoom",
+      "id": "User.togglePaneZoom"
     },
     {
       "command": {
@@ -97,6 +90,13 @@
     },
     {
       "command": {
+        "action": "resizePane",
+        "direction": "up"
+      },
+      "id": "User.resizePane.6CD791B"
+    },
+    {
+      "command": {
         "action": "nextTab"
       },
       "id": "User.nextTab.0"
@@ -104,16 +104,16 @@
     {
       "command": {
         "action": "switchToTab",
-        "index": 2
+        "index": 5
       },
-      "id": "User.switchToTab.87C324ED"
+      "id": "User.switchToTab.75247157"
     },
     {
       "command": {
         "action": "switchToTab",
-        "index": 5
+        "index": 2
       },
-      "id": "User.switchToTab.75247157"
+      "id": "User.switchToTab.87C324ED"
     },
     {
       "command": {
@@ -128,17 +128,17 @@
     },
     {
       "command": {
-        "action": "resizePane",
-        "direction": "left"
-      },
-      "id": "User.resizePane.2A0DA8E0"
-    },
-    {
-      "command": {
         "action": "moveFocus",
         "direction": "down"
       },
       "id": "User.moveFocus.F747588A"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "left"
+      },
+      "id": "User.resizePane.2A0DA8E0"
     },
     {
       "command": {
@@ -149,16 +149,16 @@
     },
     {
       "command": {
+        "action": "addMark"
+      },
+      "id": "User.addMark.0"
+    },
+    {
+      "command": {
         "action": "moveFocus",
         "direction": "previousInOrder"
       },
       "id": "User.moveFocus.787314EB"
-    },
-    {
-      "command": {
-        "action": "addMark"
-      },
-      "id": "User.addMark.0"
     },
     {
       "command": {
@@ -177,16 +177,16 @@
   ],
   "keybindings": [
     {
-      "id": "User.resizePane.6CD791B",
-      "keys": "ctrl+shift+k"
+      "id": "User.splitPane.864CD510",
+      "keys": "ctrl+shift+d"
     },
     {
       "id": null,
       "keys": "ctrl+shift+tab"
     },
     {
-      "id": "User.splitPane.864CD510",
-      "keys": "ctrl+shift+d"
+      "id": "User.resizePane.6CD791B",
+      "keys": "ctrl+shift+k"
     },
     {
       "id": null,
@@ -197,12 +197,12 @@
       "keys": "ctrl+comma"
     },
     {
-      "id": null,
-      "keys": "ctrl+shift+f"
-    },
-    {
       "id": "User.togglePaneZoom",
       "keys": "ctrl+shift+z"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+f"
     },
     {
       "id": "User.switchToTab.87C324ED",
@@ -210,19 +210,19 @@
     },
     {
       "id": null,
+      "keys": "ctrl+plus"
+    },
+    {
+      "id": null,
       "keys": "ctrl+minus"
     },
     {
       "id": null,
-      "keys": "ctrl+plus"
+      "keys": "alt+f4"
     },
     {
       "id": "User.splitPane.D5151347",
       "keys": "ctrl+shift+s"
-    },
-    {
-      "id": null,
-      "keys": "alt+f4"
     },
     {
       "id": "User.switchToTab.75247157",
@@ -237,12 +237,12 @@
       "keys": "ctrl+alt+5"
     },
     {
-      "id": null,
-      "keys": "alt+shift+right"
-    },
-    {
       "id": "User.copy.224984B4",
       "keys": "ctrl+shift+c"
+    },
+    {
+      "id": null,
+      "keys": "alt+shift+right"
     },
     {
       "id": null,
@@ -258,23 +258,23 @@
     },
     {
       "id": null,
-      "keys": "alt+space"
+      "keys": "alt+shift+plus"
     },
     {
       "id": null,
-      "keys": "alt+shift+plus"
+      "keys": "alt+space"
     },
     {
       "id": null,
       "keys": "ctrl+numpad_plus"
     },
     {
-      "id": "User.switchToTab.6CD791B",
-      "keys": "ctrl+shift+4"
-    },
-    {
       "id": "User.newTab.5DEADB41",
       "keys": "ctrl+shift+t"
+    },
+    {
+      "id": "User.switchToTab.6CD791B",
+      "keys": "ctrl+shift+4"
     },
     {
       "id": null,
@@ -293,20 +293,20 @@
       "keys": "ctrl+shift+1"
     },
     {
-      "id": null,
-      "keys": "ctrl+0"
-    },
-    {
       "id": "User.openSettings.6CD791B",
       "keys": "ctrl+shift+comma"
     },
     {
-      "id": "User.switchToTab.2A0DA8E0",
-      "keys": "ctrl+shift+2"
+      "id": null,
+      "keys": "ctrl+0"
     },
     {
       "id": "User.switchToTab.F747588A",
       "keys": "ctrl+shift+5"
+    },
+    {
+      "id": "User.switchToTab.2A0DA8E0",
+      "keys": "ctrl+shift+2"
     },
     {
       "id": null,
@@ -321,20 +321,12 @@
       "keys": "ctrl+shift+8"
     },
     {
-      "id": "User.resizePane.87C324ED",
-      "keys": "ctrl+shift+l"
-    },
-    {
       "id": null,
       "keys": "ctrl+shift+9"
     },
     {
-      "id": "User.adjustFontSize.E2698FAA",
-      "keys": "ctrl+shift+minus"
-    },
-    {
-      "id": null,
-      "keys": "ctrl+alt+7"
+      "id": "User.resizePane.87C324ED",
+      "keys": "ctrl+shift+l"
     },
     {
       "id": null,
@@ -342,15 +334,23 @@
     },
     {
       "id": null,
+      "keys": "ctrl+alt+7"
+    },
+    {
+      "id": "User.adjustFontSize.E2698FAA",
+      "keys": "ctrl+shift+minus"
+    },
+    {
+      "id": null,
       "keys": "ctrl+shift+n"
     },
     {
       "id": null,
-      "keys": "alt+shift+down"
+      "keys": "ctrl+tab"
     },
     {
       "id": null,
-      "keys": "ctrl+tab"
+      "keys": "alt+shift+down"
     },
     {
       "id": null,
@@ -362,15 +362,15 @@
     },
     {
       "id": null,
-      "keys": "ctrl+shift+pgup"
-    },
-    {
-      "id": null,
       "keys": "ctrl+shift+pgdn"
     },
     {
       "id": null,
-      "keys": "f11"
+      "keys": "ctrl+shift+pgup"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+period"
     },
     {
       "id": null,
@@ -378,7 +378,7 @@
     },
     {
       "id": null,
-      "keys": "ctrl+shift+period"
+      "keys": "f11"
     },
     {
       "id": null,
@@ -401,12 +401,12 @@
       "keys": "ctrl+alt+1"
     },
     {
-      "id": "User.adjustFontSize.E04D5229",
-      "keys": "ctrl+shift+plus"
-    },
-    {
       "id": null,
       "keys": "alt+shift+left"
+    },
+    {
+      "id": "User.adjustFontSize.E04D5229",
+      "keys": "ctrl+shift+plus"
     },
     {
       "id": null,
@@ -441,24 +441,24 @@
       "keys": "ctrl+alt+2"
     },
     {
-      "id": null,
-      "keys": "ctrl+alt+9"
-    },
-    {
       "id": "User.moveFocus.787314EB",
       "keys": "ctrl+shift+["
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+9"
     },
     {
       "id": null,
       "keys": "ctrl+alt+3"
     },
     {
-      "id": null,
-      "keys": "ctrl+alt+6"
-    },
-    {
       "id": "User.moveFocus.D7681B66",
       "keys": "ctrl+shift+]"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+6"
     },
     {
       "id": null,

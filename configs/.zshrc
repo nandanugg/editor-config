@@ -78,3 +78,5 @@ esac
 
 # opencode
 export PATH=/home/nanda/.opencode/bin:$PATH
+
+export EDITOR="nvim"
