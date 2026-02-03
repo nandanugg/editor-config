@@ -7,6 +7,7 @@
 	autocrlf = input
 	filemode = false
 	excludesFile = /home/nanda/.gitignore_global
+	pager = less
 [url "ssh://git@gitlab.com/"]
 	insteadOf = https://gitlab.com/
 [push]

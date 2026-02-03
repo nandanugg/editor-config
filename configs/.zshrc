@@ -80,3 +80,38 @@ esac
 export PATH=/home/nanda/.opencode/bin:$PATH
 
 export EDITOR="nvim"
+
+bdnew() {
+  # Create the issue and capture the JSON output
+  local output=$(bd create "$@" --json)
+  
+  # Extract the issue ID from the JSON
+  local id=$(echo "$output" | jq -r '.id')
+  
+  # Check if we got a valid ID
+  if [ -z "$id" ] || [ "$id" = "null" ]; then
+    echo "Error: Failed to create issue"
+    echo "$output"
+    return 1
+  fi
+  
+  # Open the description in editor
+  # Keep stdin/stdout/stderr connected so editor can work properly
+  bd edit "$id" --description
+  local edit_status=$?
+  
+  # If editor quit without saving (non-zero exit), delete the issue
+  if [ $edit_status -ne 0 ]; then
+    bd delete "$id" --force
+    echo "Task cancelled and deleted."
+    return 1
+  fi
+  
+  # Output the original bd create response
+  echo "$output"
+}
+
+# for Cuda WSL
+export PATH=/opt/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
+
