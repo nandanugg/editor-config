@@ -296,17 +296,18 @@ echo "🎨 Installing packages..."
 
 # Install essential tools (git, openssh, rsync for Arch)
 if [[ "$PKG_MANAGER" == "pacman" ]]; then
-  install_package "git" "git" "git"
   install_package "curl" "curl" "curl"
   install_package "openssh" "openssh-client" "openssh"
   install_package "rsync" "rsync" "rsync"
-  install_package "jq" "jq" "jq"
+  install_package "make" "make" "make"
 fi
 
 # Install zsh if not present (needed for oh-my-zsh)
 if ! command -v zsh &> /dev/null; then
   install_package "zsh" "zsh" "zsh"
 fi
+
+install_package "git" "git" "git"
 
 # Install tmux
 install_package "tmux" "tmux" "tmux"
@@ -316,6 +317,18 @@ install_package "direnv" "direnv" "direnv"
 
 # Install zoxide
 install_package "zoxide" "zoxide" "zoxide"
+
+install_package "jq" "jq" "jq"
+
+install_package "tree" "tree" "tree"
+install_package "gcc" "gcc" "gcc"
+install_package "node" "node" "node"
+install_package "go" "go" "go"
+install_package "tldr" "tldr" "tldr"
+install_package "sqlite3" "sqlite3" "sqlite3"
+install_package "ripgrep" "ripgrep" "ripgrep"
+install_package "fzf" "fzf" "fzf"
+install_package "fd" "fd" "fd"
 
 # Install asdf (note: no need to install it at Arch, the package is always latest)
 if [[ "$PKG_MANAGER" == "apt" ]]; then
